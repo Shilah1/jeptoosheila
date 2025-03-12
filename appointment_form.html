@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afia Hospital - Appointment Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #288ea7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #216788;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Book an Appointment</h2>
+        <form action="process_appointment.php" method="POST">
+            <label for="patient_email">Patient Email:</label>
+            <input type="email" id="patient_email" name="patient_email" required>
+
+            <label for="department">Select Department:</label>
+            <select id="department" name="department" required>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="Orthopedics">Orthopedics</option>
+            </select>
+
+            <label for="doctor">Select Doctor:</label>
+            <select id="doctor" name="doctor" required onchange="updateFee()">
+                <option value="">-- Select Doctor --</option>
+            </select>
+
+            <label for="consultant_fee">Consultation Fee:</label>
+            <input type="text" id="consultant_fee" name="consultant_fee" required readonly>
+
+            <label for="date">Select Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Select Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <button type="submit">Book Appointment</button>
+        </form>
+    </div>
+
+    <script>
+        function updateFee() {
+            const doctorSelect = document.getElementById("doctor");
+            const selectedOption = doctorSelect.options[doctorSelect.selectedIndex];
+            document.getElementById("consultant_fee").value = selectedOption.getAttribute("data-fee");
+        }
+
+        // Fetch doctors from the PHP file
+        fetch('fetch_doctors.php')
+            .then(response => response.json())
+            .then(data => {
+                const doctorSelect = document.getElementById("doctor");
+                data.forEach(doctor => {
+                    let option = document.createElement("option");
+                    option.value = doctor.Doctor_id;
+                    option.text = `Dr. ${doctor.first_name} ${doctor.surname}`;
+                    option.setAttribute("data-fee", doctor.consultant_fee);
+                    doctorSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error("Error fetching doctors:", error));
+    </script>
+</body>
+</html>

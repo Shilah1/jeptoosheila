@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOCTORS LOGIN</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #e0e4e9, #f7f9fc); /* Modern gradient */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #ecf0f1; /* Light text color */
+        }
+
+        .login-container {
+            background: rgba(255, 251, 251, 0.986); /* Semi-transparent background */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(234, 238, 240, 0.911);
+            width: 90%;
+            max-width: 400px;
+            backdrop-filter: blur(5px);
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: #18141f;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #11191f;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #2d7279;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: rgba(218, 225, 231, 0.2);
+            color: #1f2e30;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #0e73b6;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #57a4d8;
+            color: rgb(28, 42, 48);
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        button:hover {
+            background-color: #c9d5dd;
+            transform: scale(1.02);
+        }
+
+        .error-message {
+            color: #e74c3c; /* Red color for errors */
+            margin-top: 10px;
+            text-align: center;
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 400px) {
+            .login-container {
+                padding: 20px;
+            }
+
+            input[type="text"],
+            input[type="password"],
+            button {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="doctors_login.php" method="GET">
+            <label for="Doctor_id">Doctor_id</label>
+            <input type="text" id="Doctor_id" name="Doctor_id" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+
+            <div id="errorMessage" class="error-message"></div>  </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from actually submitting
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            // In a real application, you would send these credentials to a server
+            // for verification.  This is a simplified client-side example.
+
+            if (username === 'testuser' && password === 'password') { // Example credentials
+                // Redirect or perform some action on successful login
+                window.location.href = 'welcome.html'; // Example: redirect
+            } else {
+                errorMessage.textContent = 'Invalid username or password.';
+            }
+        });
+    </script>
+</body>
+</html>

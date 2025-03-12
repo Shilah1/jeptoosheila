@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afia Hospital - Your Health, Our Priority</title>
+    <style>
+        /* ... (Your existing CSS) ... */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #007BFF;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex; /* Added for logo and text alignment */
+            align-items: center; /* Vertically align logo and text */
+        }
+        .navbar .logo img { /* Style the logo image */
+            height: 40px; /* Adjust as needed */
+            margin-right: 10px; /* Space between logo and text */
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin: 0 15px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            background-image: url('hospital_hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-color: #e0f7fa;
+        }
+        .hero h1, .hero p {
+            color: #222;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .hero a {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .services {
+            padding: 50px;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        .services h2 {
+            margin-bottom: 30px;
+        }
+        .service-item {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .service-item:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+        .service-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        .operating-hours {
+            text-align: center;
+            padding: 20px;
+            background-color: #e8f5e9;
+        }
+        .operating-hours h2 {
+            margin-bottom: 10px;
+        }
+        .contact-info {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff3e0;
+        }
+        .contact-info p {
+            margin: 5px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Afia Hospital Logo.jpg" alt="Logo">
+            Afia Hospital
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="app page.html">Appointments</a></li>
+            <li><a href="Doctors registration form.html">Doctors</a></li>
+            <li><a href="SIGNUP.HTML">Patients</a></li>
+            <li><a href="Contact info.html">Contact</a></li>
+            <li><a href="">Admin</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>Welcome to Afia Hospital</h1>
+        <p>Providing quality healthcare for our community.</p>
+        <a href="#" id="appointmentButton">Book an Appointment</a>
+    </div>
+
+    <div class="services">
+        <h2>Our Services</h2>
+        <div class="service-item">
+            <img src="cardiology.jpg" alt="Cardiology"> <p>Cardiology</p>
+        </div>
+        <div class="service-item">
+            <img src="pediatrics.jpg" alt="Pediatrics"> <p>Pediatrics</p>
+        </div>
+        <div class="service-item">
+            <img src="surgery.jpg" alt="Surgery"> <p>Surgery</p>
+        </div>
+        <div class="service-item">
+            <img src="emergency.jpg" alt="Emergency"> <p>Emergency</p>
+        </div>
+    </div>
+
+    <div class="operating-hours">
+        <h2>Operating Hours</h2>
+        <p>Monday - Friday: 8:00 AM - 8:00 PM</p>
+        <p>Saturday: 9:00 AM - 5:00 PM</p>
+        <p>Sunday: Closed</p>
+        <p>Emergency Services: 24/7</p>
+    </div>
+
+    <div class="contact-info">
+        <h2>Contact Us</h2>
+        <p>432 Main Street, Pinevalley</p>
+        <p>Phone: +254-7975-575-611</p>
+        <p>Email: info@afiahospital.com</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Afia Hospital. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('appointmentButton').addEventListener('click', function() {
+            alert('Redirecting to the appointment booking page...');
+            // window.location.href = "appointment.html";
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afia Hospital Pharmacy Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #e5e1e9, #e5e1e9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 10px;
+        }
+        .container {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 12px;
+            text-align: left;
+            color: #34495e;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #1c86ee;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Pharmacy Form</h2>
+        <form method="POST" action="pharmacy.php">
+            <label for="patient_id">Patient ID</label>
+            <input type="text" id="patient_id" name="patient_id" required>
+        
+            <label for="medication_name">Medication Name</label>
+            <input type="textarea" id="medication_name" name="medication_name" required>
+        
+            <label for="dosage">Dosage</label>
+            <input type="textarea" id="dosage" name="dosage" required>
+        
+            <label for="frequency">Frequency</label>
+            <input type="text" id="frequency" name="frequency" required>
+        
+            <label for="start_date">Start Date</label>
+            <input type="date" id="start_date" name="start_date" required>
+        
+            <label for="end_date">End Date</label>
+            <input type="date" id="end_date" name="end_date" required>
+        
+            <button type="submit">Save Prescription</button>
+        </form>
+        
+    </div>
+</body>
+</html>
